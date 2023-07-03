@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:mycrypto/model/coin_model.dart';
 import 'package:mycrypto/screens/coin_details.dart';
+import 'package:mycrypto/screens/coin_full_list.dart';
 
 import 'coincard.dart';
 
@@ -98,13 +99,13 @@ class _homepageState extends State<homepage> {
   List<dynamic> values=[];
   List<Coin> coins_list=[];
   @override
-  void initState() {
-
-    getData();
-    Timer.periodic(Duration(seconds: 10), (timer)=>getData());
-
-    super.initState();
-  }
+  // void initState() {
+  //
+  //   getData();
+  //   Timer.periodic(Duration(seconds: 10), (timer)=>getData());
+  //
+  //   super.initState();
+  // }
   void getData() async {
     coins_list=[];
     //print("called");
@@ -254,7 +255,9 @@ class _homepageState extends State<homepage> {
                 
                 
                 SizedBox(height: 20,),
-                TextButton(onPressed: (){}, child: Text("See All")),
+                TextButton(onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>coin_full_list()));
+                }, child: Text("See All")),
 
           
                 SingleChildScrollView(

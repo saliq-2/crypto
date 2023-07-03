@@ -9,6 +9,7 @@ class Coin {
     required this.change,
     required this.changePercentage,
     required this.marketCap,
+    required this.priceChange24H,
   });
 
   String name;
@@ -18,6 +19,7 @@ class Coin {
   num change;
   num changePercentage;
   int marketCap;
+  double priceChange24H;
 
   factory Coin.fromJson(Map<String, dynamic> json) {
     return Coin(
@@ -28,6 +30,7 @@ class Coin {
       change: json['price_change_24h'],
       changePercentage: json['price_change_percentage_24h'],
       marketCap:json['market_cap'],
+      priceChange24H: json['price_change_24h']?.toDouble(),
     );
   }
 }
